@@ -1,16 +1,5 @@
-<!--<div class="container mt-4">
-    <div class="row row-cols-2 row-cols-sm-4 row-cols-md-3 row-cols-lg-4 g-4">
-    <div class="row">
-      @for (user of users; track user.id) { 
-        <app-card-user [user]="user"></app-card-user>
-      }
-    </div>
-</div>
-  </div>-->
-
-
-  <div class="container mt-4">
-    <div class="row row-cols-2 row-cols-sm-4 row-cols-md-3 row-cols-lg-4 g-4">
+<div class="container mt-4">
+    <div class="row row-cols-2 row-cols-sm-5 row-cols-md-3 row-cols-lg-4 g-4">
         @for (user of users; track user.id){
             <div class="col">
                 <app-card-user [user]="user"></app-card-user>

@@ -1,7 +1,11 @@
-<div class="card">
-    <img [src]="user.image" class="card-img-top" alt="{{ user.first_name }}" style="max-width: 400px; height: 400px; object-fit: cover; margin: 0 auto;">
-    <div class="card-body text-center">
-      <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+<div class="card-container" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+  <div class="card" style="width: 100rem; margin: 0.1px; display: flex; flex-direction: column; min-height: 350px;">
+    <img [src]="user.image" class="card-img-top" alt="{{ user.first_name }}" 
+    style="max-width: 500px; height: 500px; object-fit: cover; margin: 0 auto;">
+    <div class="card-body text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+      <h5 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ user.first_name }} {{ user.last_name }}</h5>
       <app-buttons [user]="user" [mostrarVolver]="false"></app-buttons>
     </div>
   </div>
+</div>
+
