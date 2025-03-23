@@ -35,39 +35,48 @@ export class UserFormComponent  implements OnInit {
       this.loadUserData(this.userId);
     }
   
-    // controlar alerta si es valido 
-    this.userForm.valueChanges.subscribe(() => {
+     //valueChanges forzar  ocultar la alerta si el formulario es valido
+     this.userForm.valueChanges.subscribe(() => {
       if (this.userForm.valid) {
-    this.showAlert = false; // Oculta la alerta si el formulario es válido
+        this.showAlert = false;
+      }
+    });
+
+    
   }
-});
-}
 
   initializeForm() {
     this.userForm = new FormGroup({
       _id: new FormControl(null),
-      first_name: new FormControl('', Validators.required),
+      first_name: new FormControl('', Validators.required), //validaciones
       last_name: new FormControl('', Validators.required),
       username: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.pattern(/^\w+\@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)]),
-      image: new FormControl('', Validators.pattern(/https?:\/\/.+/))
+      email: new FormControl('', [Validators.required, Validators.pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)]), 
+      image: new FormControl('', [Validators.required, Validators.pattern(/https?:\/\/.+/)])
     });
   }
+
 
   loadUserData(id: string) {
     this.userService.getUser(id).subscribe((user: Iuser) => {
       this.userForm.patchValue(user); // cargar datos en el formulario
+
+       //  asegurarse de que la alerta no aparezca si los campos son validos
+       if (this.userForm.valid) {
+        this.showAlert = false;
+      }
     });
   }
 
   submitForm() {
     if (this.userForm.valid) {
-      this.showAlert = false; // oculta la alerta si es válido
+     this.showAlert = false; // oculta la alerta si es válido
       if (this.userId) {
         // si hay un userId, actualizamos el usuario
         this.userService.updateUser(this.userId, this.userForm.value).subscribe(() => {
           console.log('Usuario actualizado correctamente'); // para ver si se ha actualizado
           this.router.navigate(['/dashboard/users']);
+         this.showAlert = false; // oculta la alerta si es válido
         });
       } else {
         // Si no hay userId, creamos un nuevo usuario
