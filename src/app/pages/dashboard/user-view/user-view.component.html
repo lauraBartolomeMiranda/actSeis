@@ -1,1 +1,24 @@
-<p>user-view works!</p>
+<div class="container mt-4">
+    <div class="card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="user.image" class="img-fluid rounded-start" alt="{{ user.first_name }}">
+        </div>
+        <div class="col-md-8 d-flex align-items-center">
+          <div class="card-body text-left">
+            <h3 class="card-title">{{ user.first_name }}</h3>
+            <br>
+            <h3 class="card-title"> {{ user.last_name }}</h3>
+            <br>
+            <p><strong>Nombre de Usuario:</strong> {{ user.username }}</p>
+            <br>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <br>
+            
+            <app-buttons [user]="user" [mostrarVolver]="true"></app-buttons>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -12,7 +12,7 @@ export const routes: Routes = [
   {
     path: "dashboard", component: DashboardComponent,  children: //dashboard tiene rutas hijas
     [
-        { path: 'user/:id', component: UserViewComponent }, // vista del usuario
+        { path: 'user/:_id', component: UserViewComponent }, // vista del usuario(antes:  { path: 'user/:id', component: UserViewComponent }, // vista del usuario?
         { path: 'newuser', component: UserFormComponent }, // crear un usuario
         { path: 'updateuser/:id', component: UserFormComponent }, // editar un usuario
     ]},

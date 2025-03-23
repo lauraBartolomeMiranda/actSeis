@@ -1,1 +1,26 @@
-<p>buttons works!</p>
+<div class="button-group">
+    <!-- btn volver si mostrarVolver es false  -->
+    @if (!mostrarVolver) {
+      <button class="btn btn-primary me-2" [routerLink]="['/dashboard/user', user._id]">
+        Ver Detalle
+      </button>
+    }
+  
+    <!-- btn actualizar-->
+    <button class="btn btn-warning me-2" [routerLink]="['/dashboard/updateuser', user._id]">
+      Actualizar
+    </button>
+  
+    <!--  btn  eliminar -->
+    <button class="btn btn-danger me-2" (click)="deleteUser()">
+      Eliminar
+    </button>
+  
+    <!--  btn volver si mostrarVolver es true  -->
+    @if (mostrarVolver) {
+      <button class="btn btn-secondary me-2" [routerLink]="['/home']">
+        Volver al listado
+      </button>
+    }
+  </div>
+
