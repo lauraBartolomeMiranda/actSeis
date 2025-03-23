@@ -24,7 +24,7 @@ export class UserViewComponent {
   ngOnInit(): void {
     //id de la url
     const id = this.route.snapshot.paramMap.get('_id');
-    console.log('ID recibido:', id); // ver id recibido de la url
+    console.log('ID recibido:', id); // ver id recibido de la url 
 
     if (id) {
       this.userService.getUser(id).subscribe({
