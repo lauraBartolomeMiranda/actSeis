@@ -26,7 +26,7 @@ export class CardUserComponent {
   deleteUser() {
     if (confirm(`¿Seguro que quieres eliminar a ${this.user.first_name}?`)) {
       console.log(`Eliminar usuario con ID: ${this.user.id}`);
-      // hacer funcionalidad de borrar. ahora solo myestra console log (siguiente)
+      
     }
   }
 }

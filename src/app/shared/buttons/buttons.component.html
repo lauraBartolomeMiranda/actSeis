@@ -1,26 +1,73 @@
-<div class="button-group">
+<div class="button-group d-flex justify-content-center gap-2">
     <!--btn volver si mostrarVolver es false  -->
+    @if (!mostrarVolver) {
+      <button class="btn btn-primary btn-sm me-1" [routerLink]="['/dashboard/user', user._id]">
+        Ver Detalle
+      </button>
+    }
+  
+    <!--btn actualizar-->
+    <button class="btn btn-warning btn-sm me-1" [routerLink]="['/dashboard/updateuser', user._id]">
+      Actualizar
+    </button>
+  
+    <!--btn  eliminar -->
+    <button class="btn btn-danger btn-sm me-1" (click)="deleteUser()">
+      Eliminar
+    </button>
+  
+    <!--btn volver si mostrarVolver es true  -->
+    @if (mostrarVolver) {
+      <button class="btn btn-secondary  btn-sm me-3" [routerLink]="['/home']">
+        Volver al listado
+      </button>
+    }
+
+
+    @if (showToast) {
+      <div class="toast show position-absolute top-0 end-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+          {{ toastMessage }}
+          <div class="mt-2 pt-2 border-top">
+            <button type="button" class="btn btn-danger btn-sm" (click)="confirmDelete()">Eliminar</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="cancelDelete()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    }
+
+
+  </div>
+
+
+
+
+
+<!--<div class="button-group">
+    btn volver si mostrarVolver es false  
     @if (!mostrarVolver) {
       <button class="btn btn-primary me-2" [routerLink]="['/dashboard/user', user._id]">
         Ver Detalle
       </button>
     }
   
-    <!--btn actualizar-->
+    btn actualizar
     <button class="btn btn-warning me-2" [routerLink]="['/dashboard/updateuser', user._id]">
       Actualizar
     </button>
   
-    <!--btn  eliminar -->
+    btn  eliminar 
     <button class="btn btn-danger me-2" (click)="deleteUser()">
       Eliminar
     </button>
   
-    <!--btn volver si mostrarVolver es true  -->
+    btn volver si mostrarVolver es true  
     @if (mostrarVolver) {
       <button class="btn btn-secondary me-2" [routerLink]="['/home']">
         Volver al listado
       </button>
     }
-  </div>
 
+
+
+  </div>-->
