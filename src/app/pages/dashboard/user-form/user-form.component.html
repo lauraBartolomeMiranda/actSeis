@@ -1,1 +1,54 @@
-<p>user-form works!</p>
+<section class="container">
+    <h1 class="text-3xl font-bold mb-4">{{ title }} Usuario</h1>
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+      <input type="hidden" formControlName="_id">
+  
+      <div class="mb-4">
+        <label for="first_name" class="form-label">Nombre</label>
+        <input type="text" id="first_name" formControlName="first_name" class="form-control" placeholder="Introduce tu nombre">
+      </div>
+  
+      <div class="mb-4">
+        <label for="last_name" class="form-label">Apellidos</label>
+        <input type="text" id="last_name" formControlName="last_name" class="form-control" placeholder="Introduce tus apellidos">
+      </div>
+  
+      <div class="mb-4">
+        <label for="username" class="form-label">Usuario</label>
+        <input type="text" id="username" formControlName="username" class="form-control" placeholder="Introduce tu nombre de usuario">
+      </div>
+  
+      <div class="mb-4">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" placeholder="Introduce tu email">
+      </div>
+  
+      
+
+      <div class="mb-4">
+        <label for="image" class="form-label">Imagen URL</label>
+        <input type="text" id="image" formControlName="image" class="form-control" placeholder="Introduce la URL de la imagen">
+      </div>
+  
+      
+      @if (showAlert) {
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+      </svg>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            Formulario inválido. Revisa los campos.
+        </div>
+      </div>
+    }
+      <input type="submit" class="btn btn-primary" [value]="userForm.get('_id')?.value ? 'Actualizar' : 'Registrar'">
+    
+
+
+
+    </form>
+</section>
+

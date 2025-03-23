@@ -1,4 +1,3 @@
-
 import { Component, Input } from '@angular/core';
 import { Iuser } from '../../interfaces/iuser.interface';
 import { Router, RouterLink} from '@angular/router';
